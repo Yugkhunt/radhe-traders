@@ -1,31 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radhe Traders | Product Catalogue</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Radhe Traders | Product Catalogue</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f7ff;
+  color:#172033;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:white;
+  border-bottom:4px solid #f5bd16;
+  padding:14px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:58px;
+  height:58px;
+  background:#2820b8;
+  color:white;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:900;
+}
+
+.brand h1{
+  margin:0;
+  font-size:22px;
+  letter-spacing:1px;
+}
+
+.brand p{
+  margin:4px 0 0;
+  color:#c99500;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.menu{
+  font-size:30px;
+}
+
+/* HERO */
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:45px 5% 25px;
+}
+
+.small-title{
+  color:#c68d00;
+  font-weight:bold;
+  letter-spacing:3px;
+}
+
+.hero h2{
+  font-size:42px;
+  margin:8px 0;
+}
+
+.hero h2 span{
+  color:#f2b500;
+}
+
+.hero p{
+  color:#697386;
+}
+
+/* CATALOGUE */
+.catalogue{
+  max-width:1050px;
+  margin:0 auto 40px;
+  background:white;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+/* SEARCH */
+.search-box{
+  background:#eef4ff;
+  padding:18px;
+  border-radius:18px;
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.search-box input{
+  flex:1;
+  padding:16px;
+  border:1px solid #d8e1ef;
+  border-radius:14px;
+  font-size:16px;
+  outline:none;
+}
+
+#count{
+  white-space:nowrap;
+  color:#687386;
+}
+
+/* CATEGORY */
+h3{
+  color:#2860b7;
+  margin-top:28px;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.category{
+  background:white;
+  border:1px solid #cbdcf1;
+  border-radius:13px;
+  padding:15px;
+  font-size:15px;
+  font-weight:bold;
+  color:#2860b7;
+  cursor:pointer;
+  text-align:left;
+}
+
+.category:hover,
+.category.active{
+  background:#edf5ff;
+  border-left:5px solid #f4bd16;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:25px;
+}
+
+.product{
+  background:white;
+  border:1px solid #e0e5ed;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+
+.product-image{
+  height:210px;
+  background:linear-gradient(135deg,#fff1a5,#e9effc);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:22px;
+  font-weight:bold;
+  color:#7a7f8a;
+}
+
+.product-info{
+  padding:15px;
+}
+
+.product h4{
+  margin:0 0 10px;
+  font-size:18px;
+}
+
+.code{
+  background:#e4efff;
+  color:#2863ae;
+  border-radius:10px;
+  padding:8px 10px;
+  font-size:13px;
+}
+
+button{
+  font-family:inherit;
+}
+
+.enquiry,
+.whatsapp{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  padding:13px;
+  margin-top:9px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.enquiry{
+  background:#e3efff;
+  color:#2460ae;
+}
+
+.whatsapp{
+  background:#16a34a;
+  color:white;
+}
+
+/* FLOAT BUTTON */
+.float{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#16a34a;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .brand h1{
+    font-size:19px;
+  }
+
+  .brand p{
+    font-size:9px;
+  }
+
+  .logo{
+    width:50px;
+    height:50px;
+  }
+
+  .hero{
+    padding:35px 5% 20px;
+  }
+
+  .hero h2{
+    font-size:32px;
+  }
+
+  .catalogue{
+    margin:0 12px 30px;
+    padding:14px;
+  }
+
+  .search-box{
+    display:block;
+  }
+
+  #count{
+    display:block;
+    margin-top:8px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+  }
+
+  .category{
+    padding:12px;
+    font-size:13px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product-image{
+    height:170px;
+    font-size:16px;
+  }
+
+  .product h4{
+    font-size:15px;
+  }
+
+  .product-info{
+    padding:12px;
+  }
+
+  .enquiry,
+  .whatsapp{
+    font-size:12px;
+    padding:11px 5px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header class="header">
+<header>
+
   <div class="brand">
-    <div class="logo">RT</div>
+
+    <div class="logo">
+      RT
+    </div>
 
     <div>
       <h1>RADHE TRADERS</h1>
-      <p>Tools • Industrial Products • Hardware</p>
+      <p>TOOLS • INDUSTRIAL PRODUCTS • HARDWARE</p>
     </div>
+
   </div>
 
-  <button class="menu-btn">☰</button>
+  <div class="menu">☰</div>
+
 </header>
 
-<main>
 
 <section class="hero">
-  <p class="eyebrow">RADHE TRADERS</p>
+
+  <div class="small-title">
+    RADHE TRADERS
+  </div>
 
   <h2>
     FULL PRODUCT <span>CATALOGUE</span>
@@ -34,37 +355,292 @@
   <p>
     Quality tools and industrial products for your business.
   </p>
+
 </section>
 
 
 <section class="catalogue">
 
-  <div class="search-row">
+  <div class="search-box">
+
     <input
       id="search"
       type="search"
       placeholder="Search products or item code..."
+      oninput="showProducts()"
     >
 
-    <span id="count"></span>
+    <span id="count">
+      11 products
+    </span>
+
   </div>
 
 
-  <h3>FILTER BY CATEGORY</h3>
+  <h3>
+    FILTER BY CATEGORY
+  </h3>
 
-  <div id="categories" class="categories"></div>
 
-  <div id="products" class="products"></div>
+  <div class="categories" id="categories">
+
+  </div>
+
+
+  <div class="products" id="products">
+
+  </div>
 
 </section>
 
-</main>
 
-<a class="whatsapp-float" href="#">
-  ☏
+<a class="float"
+   href="#"
+   onclick="alert('WhatsApp number will be added next!');return false;">
+   ☏
 </a>
 
-<script src="script.js"></script>
+
+<script>
+
+const categories = [
+
+  "🔧 Hand Tools & Power Tools",
+
+  "🔥 Fabrication & Welding",
+
+  "🚗 Garage Equipment",
+
+  "💨 Pneumatic Systems & Their Parts",
+
+  "🏗️ Lifting Accessories",
+
+  "🧰 Imported Products",
+
+  "🦺 Safety Tools Product",
+
+  "🔩 Hardware & Maintenance",
+
+  "🛞 Tyre & Trolley Wheels"
+
+];
+
+
+const products = [
+
+  ["HT001","Combination Spanner Set","🔧 Hand Tools & Power Tools"],
+
+  ["HT002","Professional Screwdriver Set","🔧 Hand Tools & Power Tools"],
+
+  ["FW001","Welding Machine","🔥 Fabrication & Welding"],
+
+  ["FW002","Welding Holder & Cable","🔥 Fabrication & Welding"],
+
+  ["GE001","Hydraulic Jack","🚗 Garage Equipment"],
+
+  ["PN001","Pneumatic Air Blow Gun","💨 Pneumatic Systems & Their Parts"],
+
+  ["LA001","Lifting Hook","🏗️ Lifting Accessories"],
+
+  ["IP001","Imported Measuring Tool","🧰 Imported Products"],
+
+  ["ST001","Safety Gloves","🦺 Safety Tools Product"],
+
+  ["HM001","Cutting Wheel","🔩 Hardware & Maintenance"],
+
+  ["TW001","Heavy Duty Trolley Wheel","🛞 Tyre & Trolley Wheels"]
+
+];
+
+
+let selected = "All";
+
+
+function loadCategories(){
+
+  const box =
+    document.getElementById("categories");
+
+  box.innerHTML = "";
+
+  const all =
+    document.createElement("button");
+
+  all.className =
+    "category " +
+    (selected === "All" ? "active" : "");
+
+  all.innerHTML =
+    "📦 All Products";
+
+  all.onclick = function(){
+
+    selected = "All";
+
+    loadCategories();
+
+    showProducts();
+
+  };
+
+  box.appendChild(all);
+
+
+  categories.forEach(function(category){
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      "category " +
+      (selected === category ? "active" : "");
+
+    button.innerHTML = category;
+
+    button.onclick = function(){
+
+      selected = category;
+
+      loadCategories();
+
+      showProducts();
+
+    };
+
+    box.appendChild(button);
+
+  });
+
+}
+
+
+function showProducts(){
+
+  const search =
+    document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+  const box =
+    document.getElementById("products");
+
+
+  const filtered =
+    products.filter(function(product){
+
+      const code =
+        product[0].toLowerCase();
+
+      const name =
+        product[1].toLowerCase();
+
+      const category =
+        product[2].toLowerCase();
+
+      const categoryOK =
+        selected === "All" ||
+        product[2] === selected;
+
+      const searchOK =
+        code.includes(search) ||
+        name.includes(search) ||
+        category.includes(search);
+
+      return categoryOK && searchOK;
+
+    });
+
+
+  document.getElementById("count")
+    .innerText =
+    filtered.length + " products";
+
+
+  box.innerHTML = "";
+
+
+  filtered.forEach(function(product){
+
+    const card =
+      document.createElement("div");
+
+    card.className = "product";
+
+
+    card.innerHTML = `
+
+      <div class="product-image">
+        PRODUCT PHOTO
+      </div>
+
+      <div class="product-info">
+
+        <h4>
+          ${product[1]}
+        </h4>
+
+        <div class="code">
+          Item Code: ${product[0]}
+        </div>
+
+        <button
+          class="enquiry"
+          onclick="addEnquiry('${product[0]}')">
+
+          + Add to Enquiry List
+
+        </button>
+
+        <button
+          class="whatsapp"
+          onclick="whatsapp('${product[0]}','${product[1]}')">
+
+          ☏ Inquire on WhatsApp
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    box.appendChild(card);
+
+  });
+
+}
+
+
+function addEnquiry(code){
+
+  alert(
+    "Product " +
+    code +
+    " added to enquiry list!"
+  );
+
+}
+
+
+function whatsapp(code,name){
+
+  alert(
+    "WhatsApp enquiry ready for: " +
+    name +
+    " (" +
+    code +
+    ")"
+  );
+
+}
+
+
+loadCategories();
+
+showProducts();
+
+</script>
 
 </body>
 </html>
