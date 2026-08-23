@@ -1,10 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Radhe Traders</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radhe Traders | Product Catalogue</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>RADHE TRADERS</h1>
-    <p>Industrial Tools & Equipment</p>
+
+<header class="header">
+  <div class="brand">
+    <div class="logo">RT</div>
+
+    <div>
+      <h1>RADHE TRADERS</h1>
+      <p>Tools • Industrial Products • Hardware</p>
+    </div>
+  </div>
+
+  <button class="menu-btn">☰</button>
+</header>
+
+<main>
+
+<section class="hero">
+  <p class="eyebrow">RADHE TRADERS</p>
+
+  <h2>
+    FULL PRODUCT <span>CATALOGUE</span>
+  </h2>
+
+  <p>
+    Quality tools and industrial products for your business.
+  </p>
+</section>
+
+
+<section class="catalogue">
+
+  <div class="search-row">
+    <input
+      id="search"
+      type="search"
+      placeholder="Search products or item code..."
+    >
+
+    <span id="count"></span>
+  </div>
+
+
+  <h3>FILTER BY CATEGORY</h3>
+
+  <div id="categories" class="categories"></div>
+
+  <div id="products" class="products"></div>
+
+</section>
+
+</main>
+
+<a class="whatsapp-float" href="#">
+  ☏
+</a>
+
+<script src="script.js"></script>
+
 </body>
 </html>
